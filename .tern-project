@@ -3,7 +3,7 @@
     "browser"
   ],
   "loadEagerly": [
-    "src/js/*.js",
+    "src/js/*.js"
   ],
   "plugins": {
     "string": {}

@@ -4,6 +4,8 @@
  * @fileOverview This file contains the /components/ module for emulating Web Components behavior.
  * @name components.js<src>
  * @author Etienne Prud’homme
+ * @version 1.0.0
+ * @link https://github.com/notetiene/components
  * @license GPLv3
  */
 
