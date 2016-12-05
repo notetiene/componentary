@@ -67,7 +67,8 @@ var components = (function() {
 
     var customElement = customElements[_name];
 
-    // For compatibility reasons, it is the best way to write a String to an Element.
+    // For compatibility reasons, it is the best way to write a String to an
+    // Element.
     var fragment = range.createContextualFragment(customElement.template);
 
     var topNode = null;
@@ -84,7 +85,12 @@ var components = (function() {
       throw new Error('The “' + _name + '” component doesn’t contain a valid node.');
     }
 
-    // Note: using proto.createdCallback is useless here (as far as I know) since it’s handled by the user.
+    // Note: using proto.createdCallback is useless here (as far as I know)
+    // since it’s handled by the user.
+    // Note: not useless at all if we want to hide some operations.
+    if(proto.createdCallback instanceof Function) {
+      proto.createdCallback.call(this);
+    }
 
     // proto.attachedCallback
     // This callback is called when the element is attached to the DOM (i.e. appendChild). It does so because when a DocumentFragment is attached to the DOM, its content is emptied (thus removing its childNodes).
