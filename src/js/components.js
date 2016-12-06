@@ -88,8 +88,10 @@ var components = (function() {
     // Note: using proto.createdCallback is useless here (as far as I know)
     // since it’s handled by the user.
     // Note: not useless at all if we want to hide some operations.
-    if(proto.createdCallback instanceof Function) {
-      proto.createdCallback.call(this);
+    var createdCallback = customElement.proto.createdCallback || {};
+
+    if(createdCallback instanceof Function) {
+      createdCallback.call(fragment);
     }
 
     // proto.attachedCallback
