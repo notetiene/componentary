@@ -267,7 +267,8 @@ var components = (function() {
       var observerAttached = new MutationObserver(function(mutations) {
         for(var i=0, len=mutations.length; i<len; i++) {
           // When a DocumentFragment is appended, it becomes void
-          if(mutations[i].type === 'childList' && fragment.childNodes.length === 0) {
+          if(mutations[i].type === 'childList' && mutations[i].removedNodes[0] === topNode) {
+            // XXX: Is it doing anything?
             mergeObjects(topNode, fragment);
             attachedCb.call(topNode);
           }
