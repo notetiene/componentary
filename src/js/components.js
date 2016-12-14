@@ -7,7 +7,7 @@
  * @version 1.0.0
  * @link https://github.com/notetiene/components
  * @todo Keep track of instances. This way, the style tag could be removed.
- * @license GPLv3
+ * @license MIT
  */
 
 /**
