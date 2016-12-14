@@ -2,6 +2,7 @@
 
 var gulp = require('gulp');
 var uglify = require('gulp-uglify');
+var watch = require('gulp-watch');
 var clean = require('gulp-clean');
 
 var build = './dist/';
@@ -9,20 +10,20 @@ var src = './src/js/components.js';
 
 
 gulp.task('clean', function() {
-  return gulp.src(build, {read: false})
-    .pipe(clean());
+    return gulp.src(build, {read: false})
+        .pipe(clean());
 });
 
 
 gulp.task('js', ['clean'], function() {
-  return gulp.src(src)
-    .pipe(uglify({preserveComments: 'license'}))
-    .pipe(gulp.dest(build));
+    return gulp.src(src)
+        .pipe(uglify({preserveComments: 'license'}))
+        .pipe(gulp.dest(build));
 });
 
 
 gulp.task('watch', function() {
-  return gulp.watch(src, ['default']);
+    return watch(src, ['default']);
 });
 
 gulp.task('default', ['js']);
