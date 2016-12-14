@@ -1,26 +1,27 @@
 {
-    "name": "components",
-    "version": "1.0.0",
-    "description": "Small library that tries to emulate the behavior of Web Components while being native HTML.",
-    "main": "dist/components.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/notetiene/components.git"
-    },
-    "author": "Etienne Prud’homme",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/notetiene/components/issues"
-    },
-    "homepage": "https://github.com/notetiene/components#readme",
-    "devDependencies": {
-        "gulp": "^3.9.1",
-        "gulp-clean": "^0.3.2",
-        "gulp-uglify": "^1.5.4",
-        "gulp-watch": "^4.3.9",
-        "uglify-save-license": "^0.4.1"
-    }
+  "name": "components",
+  "version": "1.0.0",
+  "description": "Small library that tries to emulate the behavior of Web Components while being native HTML.",
+  "main": "dist/components.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/notetiene/components.git"
+  },
+  "author": "Etienne Prud’homme",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/notetiene/components/issues"
+  },
+  "homepage": "https://github.com/notetiene/components#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-uglify": "^1.5.4",
+    "gulp-watch": "^4.3.9",
+    "uglify-save-license": "^0.4.1"
+  }
 }

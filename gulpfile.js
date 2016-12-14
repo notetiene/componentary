@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
 var clean = require('gulp-clean');
+var sourcemaps = require('gulp-sourcemaps');
 
 var build = './dist/';
 var src = './src/js/components.js';
@@ -17,7 +18,9 @@ gulp.task('clean', function() {
 
 gulp.task('js', ['clean'], function() {
     return gulp.src(src)
+        .pipe(sourcemaps.init())
         .pipe(uglify({preserveComments: 'license'}))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(build));
 });
 
