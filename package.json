@@ -1,21 +1,21 @@
 {
-  "name": "components",
+  "name": "componentary",
   "version": "1.0.0",
   "description": "Small library that tries to emulate the behavior of Web Components while being native HTML.",
-  "main": "dist/components.js",
+  "main": "dist/componentary.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/notetiene/components.git"
+    "url": "git+https://github.com/notetiene/componentary.git"
   },
   "author": "Etienne Prud’homme",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/notetiene/components/issues"
+    "url": "https://github.com/notetiene/componentary/issues"
   },
-  "homepage": "https://github.com/notetiene/components#readme",
+  "homepage": "https://github.com/notetiene/componentary#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",

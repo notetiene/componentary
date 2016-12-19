@@ -1,18 +1,23 @@
 /*global MutationObserver, CSSRule */
 
 /**
- * @fileOverview This file contains the /components/ module for emulating Web Components behavior.
- * @name components.js<src>
+ * @fileOverview This file contains the _componentary_ module for
+ * emulating Web Components behavior.
+ * @name componentary.js<src>
  * @author Etienne Prud’homme
  * @version 1.0.0
- * @link https://github.com/notetiene/components
- * @todo Keep track of instances. This way, the style tag could be removed.
+ * @link https://github.com/notetiene/componentary
+ * @todo Keep track of instances. This way, the style tag could be
+ * removed.
  * @license MIT
  */
 
 /**
- * Module to construct custom components (i.e. Element tree). It tries to emulate the behavior of Web Components while being native HTML.
- * @returns {Object} Methods to register a component ({@link registerElement}) and to create an instance of that component ({@link createElement}).
+ * Module to construct custom components (i.e. Element tree). It tries
+ * to emulate the behavior of Web Components while being native HTML.
+ * @returns {Object} Methods to register a component
+ * ({@link registerElement}) and to create an instance of that
+ * component ({@link createElement}).
  * @throws {Error} Errors about component initialization.
  */
 var components = (function() {
@@ -41,7 +46,7 @@ var components = (function() {
         var doc = document.implementation.createHTMLDocument('');
         var styleElement = document.createElement('style');
 
-        styleElement.textContent = styleContent.replace(/\$self/g, '.components-lib-self-component');
+        styleElement.textContent = styleContent.replace(/\$self/g, '.componentary-lib-self-component');
         // the style will only be parsed once it is added to a document
         doc.body.appendChild(styleElement);
         return styleElement.sheet.cssRules;
@@ -86,8 +91,8 @@ var components = (function() {
                                 'currently supported for style scoping');
             }
 
-            if(rule.selectorText.trim() === '.components-lib-self-component') {
-                result += rule.cssText.replace(/\.components-lib-self-component/g, prefix);
+            if(rule.selectorText.trim() === '.componentary-lib-self-component') {
+                result += rule.cssText.replace(/\.componentary-lib-self-component/g, prefix);
                 continue;
             }
 
@@ -138,12 +143,12 @@ var components = (function() {
      * @returns {HTMLElement} The new {@link topNode} (if any).
      */
     function injectElementStyle(name, style, fragment, topNode, instanceStyle) {
-        var styleID = name + '-components-lib-style';
+        var styleID = name + '-componentary-lib-style';
         var styleInjected = document.getElementById(styleID);
         var _style = style || null;
         var styleEl = null;
         var scopedEl = null;
-        var className = name + '-components-lib-scoped';
+        var className = name + '-componentary-lib-scoped';
 
         if(styleInjected !== null ||
            Object.prototype.toString.apply(_style) !== '[object String]') {
@@ -176,16 +181,22 @@ var components = (function() {
 
     var customElements = {};
 
-    // Compatibility fix. See: http://stackoverflow.com/a/34292615
+    /**
+     * Compatibility fix.
+     * @see http://stackoverflow.com/a/34292615
+     */
     var range = document.createRange();
     range.selectNode(document.body);
 
     /**
      * Register a custom element.
-     * @param {String} _name - The name to identify the custom element.
-     * @param {string} _template -
-     * @param {Object} _proto - Callbacks for WebComponents. See: http://thejackalofjavascript.com/web-components-future-web/#custELeLifeCyncle
-     * @throws {Error} Various errors about a component initialization.
+     * @param {String} _name - The name to identify the custom
+     * element.
+     * @param {String} _template - The HTML template.
+     * @param {Object} _proto - Callbacks for WebComponents.
+     * @throws {Error} Various errors about a component
+     * initialization.
+     * @see http://thejackalofjavascript.com/web-components-future-web/#custELeLifeCyncle
      */
     var registerElement = function(_name, _template, _proto) {
         if(_name.constructor !== String || _name === '') {
@@ -213,12 +224,17 @@ var components = (function() {
     };
 
     /**
-     * Create an instance of a specified element by returning a {@linkcode DocumentFragment}. The responsability to inject the fragment is left to the user. This element must be present in {@link customElements}.
+     * Create an instance of a specified element by returning a
+     * {@link DocumentFragment}. The responsability to inject the
+     * fragment is left to the user. This element must be present in
+     * {@link customElements}.
      * @param {String} _name - The unique name of the element.
-     * @param {String} _style - Optional style that will be added to the
-     * scoped. Note that once an element is created with that attribute, it is no
-     * longer possible to add more style with {@link createElement}.
-     * @returns {DocumentFragment} - A document fragment containing the element template and its attached callbacks.
+     * @param {String} _style - Optional style that will be added to
+     * the scoped. Note that once an element is created with that
+     * attribute, it is no longer possible to add more style with
+     * {@link createElement}.
+     * @returns {DocumentFragment} - A document fragment containing
+     * the element template and its attached callbacks.
      * @throws {Error} Component instantiation error.
      */
     var createElement = function(_name, _style) {
@@ -251,8 +267,8 @@ var components = (function() {
 
         topNode = injectElementStyle(_name, style, fragment, topNode, customStyle);
 
-        // Note: using proto.createdCallback is useless here (as far as I know)
-        // since it’s handled by the user.
+        // Note: using proto.createdCallback is useless here (as far
+        // as I know) since it’s handled by the user.
         // Note: not useless at all if we want to hide some operations.
         var createdCallback = customElement.proto.createdCallback || {};
 
@@ -261,12 +277,16 @@ var components = (function() {
         }
 
         // proto.attachedCallback
-        // This callback is called when the element is attached to the DOM (i.e. appendChild). It does so because when a DocumentFragment is attached to the DOM, its content is emptied (thus removing its childNodes).
+        // This callback is called when the element is attached to the
+        // DOM (i.e. appendChild). It does so because when a
+        // DocumentFragment is attached to the DOM, its content is
+        // emptied (thus removing its childNodes).
         var attachedCb = customElement.proto.attachedCallback;
         if(attachedCb instanceof Function) {
             var observerAttached = new MutationObserver(function(mutations) {
                 for(var i=0, len=mutations.length; i<len; i++) {
-                    // When a DocumentFragment is appended, it becomes void
+                    // When a DocumentFragment is appended, it becomes
+                    // void
                     if(mutations[i].type === 'childList' && mutations[i].removedNodes[0] === topNode) {
                         // XXX: Is it doing anything?
                         mergeObjects(topNode, fragment);
@@ -278,7 +298,9 @@ var components = (function() {
         }
 
         // proto.attributeChangedCallback
-        // This callback is called when an attribute of the container (top most) element changed. It doesn’t include children elements.
+        // This callback is called when an attribute of the container
+        // (top most) element changed. It doesn’t include children
+        // elements.
         var attributeChangedCb = customElement.proto.attributeChangedCallback;
         if(attributeChangedCb instanceof Function) {
             var observerAttr = new MutationObserver(function(mutations) {
@@ -304,4 +326,4 @@ var components = (function() {
     };
 })();
 
-// components.js<src> ends here
+// componentary.js<src> ends here

@@ -14,12 +14,8 @@
     "unused": true,
     "newcap": false,
     "globals": {
-        "Polymer": true,
         "Platform": true,
         "Promise": true,
-        "MathAndPhysics": true,
-        "CookieManager": true,
-        "Model": true,
         "window": true,
         "document": true
     }

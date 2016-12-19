@@ -2,7 +2,6 @@
 dist/
 node_modules/
 TODO
-.dir-locals.el
 \#*\#
 GTAGS
 GRTAGS

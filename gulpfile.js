@@ -7,7 +7,7 @@ var clean = require('gulp-clean');
 var sourcemaps = require('gulp-sourcemaps');
 
 var build = './dist/';
-var src = './src/js/components.js';
+var src = './src/js/componentary.js';
 
 
 gulp.task('clean', function() {
@@ -31,4 +31,4 @@ gulp.task('watch', function() {
 
 gulp.task('default', ['js']);
 
-// gulpfile.js<components> ends here
+// gulpfile.js<componentary> ends here
