@@ -4,7 +4,8 @@
   "description": "Small library that tries to emulate the behavior of Web Components while being native HTML.",
   "main": "dist/componentary.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "generate-release"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
     "gulp-sourcemaps": "^1.9.1",
     "gulp-uglify": "^1.5.4",
     "gulp-watch": "^4.3.9",
