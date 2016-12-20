@@ -1,0 +1,24 @@
+{
+  "name": "componentary",
+  "version": "1.0.0",
+  "description": "Small library that tries to emulate the behavior of Web Components while being native HTML.",
+  "main": "dist/componentary.min.js",
+  "authors": [
+    "Etienne Prud’homme"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "WebComponents",
+    "Custom",
+    "Elements",
+    "HTML"
+  ],
+  "homepage": "https://github.com/notetiene/componentary",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

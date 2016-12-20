@@ -1,0 +1,18 @@
+  {
+      "package_file_location": "./package.json",
+      "no_confirm": false,
+      "skip_git_pull": false,
+      "skip_git_push": false,
+      "release_message": true,
+      "remote": "origin",
+      "pre_commit_commands": ["gulp"],
+      "post_commit_commands": [],
+      "post_complete_commands": [],
+      "files_to_commit": [
+          "./dist/componentary.js",
+          "./dist/componentary.js.map",
+          "./dist/componentary.min.js",
+          "./dist/componentary.min.js.map"
+      ],
+      "files_to_version": ["README.md", "package.json", "bower.json", "src/js/componentary.js"]
+  }

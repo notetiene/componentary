@@ -42,6 +42,6 @@ gulp.task('watch', function() {
     return watch(src, ['default']);
 });
 
-gulp.task('default', ['js']);
+gulp.task('default', ['minified_js', 'js']);
 
 // gulpfile.js<componentary> ends here
