@@ -1,6 +1,6 @@
 {
   "name": "componentary",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Small library that tries to emulate the behavior of Web Components while being native HTML.",
   "main": "dist/componentary.js",
   "scripts": {
